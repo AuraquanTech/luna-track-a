@@ -28,7 +28,7 @@ db: Optional[SupabaseDB] = None
 if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
     db = SupabaseDB(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
-rate_limiter = RateLimiter(LUNA_RATE_LIMIT_PER_MIN, LUNA_RATE_LIMIT_BURST)
+rate_limiter = RateLimiter(rate_per_minute=LUNA_RATE_LIMIT_PER_MIN, burst=LUNA_RATE_LIMIT_BURST)
 
 app = FastAPI(
     title="Luna Track A API",

@@ -10,4 +10,5 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY . /app
 
 # Railway sets PORT
-CMD ["sh", "-c", "fastmcp run server.py --transport http --host 0.0.0.0 --port ${PORT:-8000}"]
+# Use OpenAPI wrapper for ChatGPT integration
+CMD ["sh", "-c", "uvicorn openapi_wrapper:app --host 0.0.0.0 --port ${PORT:-8000}"]

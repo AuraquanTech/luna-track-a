@@ -12,7 +12,8 @@ Cost strategy:
 - This server only VALIDATES + STORES structured outputs (plus best-effort metrics).
 """
 
-from __future__ import annotations
+# NOTE: Do NOT use `from __future__ import annotations` here.
+# FastMCP needs to resolve type annotations immediately to build tool schemas.
 
 import os
 import json
